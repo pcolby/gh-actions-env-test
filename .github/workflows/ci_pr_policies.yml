@@ -5,7 +5,7 @@ on:
 
 jobs:
     merge_policy:
-        name: 'Check PR Title'
+        name: 'Check PR Title <BRANCH>'
         runs-on: ubuntu-latest
         steps:
             - run: |
