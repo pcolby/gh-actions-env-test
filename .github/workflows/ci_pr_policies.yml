@@ -1,0 +1,15 @@
+name: CI Check Merge Rules Compliance
+on:
+    pull_request:
+        types: [opened, edited, synchronize, reopened]
+
+jobs:
+    merge_policy:
+        name: 'Check PR Title'
+        runs-on: ubuntu-latest
+        steps:
+            - run: [[ "${pr_title}" =~ "${regex} && "${#pr_title}" -ge "${min_length}" ]]
+              env:
+                  regex: '^\[[a-zA-Z]{2,5}-\d+\][[:space:]]'
+                  min_length: 20
+                  pr_title: ${{ github.event.pull_request.title }}
