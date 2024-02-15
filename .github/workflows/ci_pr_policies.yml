@@ -16,9 +16,9 @@ jobs:
                   echo B
                   [[ "${#pr_title}" -ge "${min_length}" ]] && echo true || echo false
                   echo C
-                  [[ "${pr_title}" =~ "${regex}" && "${#pr_title}" -ge "${min_length}" ]] && echo true || echo false
+                  [[ "${pr_title}" =~ $regex && "${#pr_title}" -ge "${min_length}" ]] && echo true || echo false
                   echo D
               env:
-                  regex: '^\[[a-zA-Z]{2,5}-[0-9]+\][[:space:]]'
+                  regex: ^\[[a-zA-Z]{2,5}-[0-9]+\][[:space:]]
                   min_length: 20
                   pr_title: ${{ github.event.pull_request.title }}
