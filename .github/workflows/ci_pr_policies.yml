@@ -8,16 +8,7 @@ jobs:
         name: 'Check PR Title <BRANCH>'
         runs-on: ubuntu-latest
         steps:
-            - run: |
-                  echo "$pr_title"
-                  echo A
-                  echo "${#pr_title} -ge ${min_length}"
-                  echo "<${regex}>"
-                  echo B
-                  [[ "${#pr_title}" -ge "${min_length}" ]] && echo true || echo false
-                  echo C
-                  [[ "${pr_title}" =~ $regex && "${#pr_title}" -ge "${min_length}" ]] && echo true || echo false
-                  echo D
+            - run: [[ "${pr_title}" =~ $regex && "${#pr_title}" -ge "${min_length}" ]] && echo true || echo false
               env:
                   regex: ^\[[a-zA-Z]{2,5}-[0-9]+\][[:space:]]
                   min_length: 20
