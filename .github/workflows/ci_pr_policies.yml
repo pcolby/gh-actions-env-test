@@ -8,7 +8,9 @@ jobs:
         name: 'Check PR Title'
         runs-on: ubuntu-latest
         steps:
-            - run: [[ "${pr_title}" =~ "${regex} && "${#pr_title}" -ge "${min_length}" ]]
+            - run:
+                  echo "$pr_title"
+                  [[ "${pr_title}" =~ "${regex} && "${#pr_title}" -ge "${min_length}" ]]
               env:
                   regex: '^\[[a-zA-Z]{2,5}-\d+\][[:space:]]'
                   min_length: 20
