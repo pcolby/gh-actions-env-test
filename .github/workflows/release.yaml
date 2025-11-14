@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Determine new version
         run: |
-          latestReleaseTagName=$(gh release view --json tagName --jq '.[]')
+          latestReleaseTagName=$(gh release view --json tagName --jq '.[]' || :)
           if [[ -z "${latestReleaseTagName}" ]]; then
             version=( 1 0 0 )
           elif [[ ! "${latestReleaseTagName}" =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
