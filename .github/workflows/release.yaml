@@ -20,7 +20,7 @@ env:
   GH_TOKEN: ${{ github.token }}
   RELEASE_TYPE: ${{ inputs.release-type }}
 
-default:
+defaults:
   run:
     shell: bash
 
