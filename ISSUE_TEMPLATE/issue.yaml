@@ -1,0 +1,13 @@
+name: New Issue
+description: Report an issue
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please describe the issue in as much detail as you can
+      placeholder: Tell us what you see!
+    validations:
+      required: true
